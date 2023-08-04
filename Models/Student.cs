@@ -8,6 +8,7 @@ namespace DojoSurvey.Models;
 public class Student
 {
     [Required]
+    [MinLength(2, ErrorMessage = "Name must have at least 2 characters.")]
     public string Name {get; set;}
 
     [Required]
@@ -16,8 +17,6 @@ public class Student
     [Required]
     public string FavLanguage {get; set;}
 
-    [MinLength(10, ErrorMessage = "Must have a minimum of 10 characters!")]
+    [MinLength(20, ErrorMessage = "Must have a minimum of 20 characters!")]
     public string? Comment {get; set;}
-
-
 }
