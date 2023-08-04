@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Submitted Info";
+}
+
+@model List<Student>
+
+@foreach(Student s in Model)
+{
+    <div class="container border border-1 w-50">
+        <div>
+            <h1 class="text-decoration-underline m-3">@ViewData["Title"]</h1>
+        </div>
+        <div class="d-flex justify-content-start gap-5 m-3">
+            <div>
+                <p>Name: </p>
+                <p>Dojo Location: </p>
+                <p>Favorite Language: </p>
+                <p>Comment(optional): </p>
+            </div>
+            <div class="ms-5">
+                <p>@s.Name</p>
+                <p>@s.DojoLocation</p>
+                <p>@s.FavLanguage</p>
+                @{
+                    if (s.Comment == null)
+                    {
+                        <p class="text-secondary">No comment</p>
+                    } else {
+                        <p>@s.Comment</p>
+                    }
+                }
+            </div>
+        </div>
+        <div class="text-end m-4">
+            <a href="/"><button class="btn btn-outline-dark">Go Back</button></a>
+        </div>
+    </div>
+}
